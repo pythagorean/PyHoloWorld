@@ -1,4 +1,4 @@
-__pragma__ ('noalias', 'get')
+__pragma__ ('noalias', 'get') # Defaults to py_get, js_get to get
 
 def holoWorldEntryCreate(entry):
     return commit('holoWorldEntry', entry)
