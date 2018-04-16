@@ -4,6 +4,7 @@ from paver.easy import *
 def build():
     sh('transcrypt -n ui/*.py')
     sh('transcrypt -n -p .none dna/*/*.py')
+    print('Modifying javascript for otto.')
     runtime = path('python-runtime.js').lines()
     for dir in path('dna').dirs():
         for infile in path(dir + '/__javascript__').files('*.mod.js'):
