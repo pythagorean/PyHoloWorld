@@ -1,0 +1,53 @@
+{
+    "Version": 1,
+    "UUID": "a211fc6c-3dbf-11e8-b744-4a00057935b0",
+    "Name": "HoloWorld",
+    "Properties": {
+        "description": "provides an application template",
+        "language": "en"
+    },
+    "PropertiesSchemaFile": "properties_schema.json",
+    "BasedOn": {
+        "H": null
+    },
+    "RequiresVersion": 23,
+    "DHTConfig": {
+        "HashType": "sha2-256",
+        "NeighborhoodSize": 0
+    },
+    "Progenitor": {
+        "Identity": "",
+        "PubKey": null
+    },
+    "Zomes": [
+        {
+            "Name": "HoloWorld",
+            "Description": "provide a sample zome",
+            "CodeFile": "__javascript__/holoWorldZome.js",
+            "RibosomeType": "js",
+            "BridgeFuncs": null,
+            "Config": null,
+            "Entries": [
+                {
+                    "Name": "holoWorldEntry",
+                    "DataFormat": "json",
+                    "Schema": "",
+                    "SchemaFile": "holoWorldEntry.json",
+                    "Sharing": "public"
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "holoWorldEntryCreate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "holoWorldEntryRead",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                }
+            ]
+        }
+    ]
+}
