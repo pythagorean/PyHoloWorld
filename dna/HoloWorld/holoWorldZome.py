@@ -4,7 +4,7 @@ def holoWorldEntryCreate(entry):
     return commit('holoWorldEntry', entry)
 
 def holoWorldEntryRead(hash):
-    return js_get(hash)
+    return get(hash)
 
 def genesis():
     return True
