@@ -1,8 +1,7 @@
 MIT License
 
-Original HoloWorld Copyright (c) 2018 Holochain
-Derivative PyHoloWorld Copyright (c) 2018 Michael Goldman
-startswith.js Copyright Mathias Bynens <https://mathiasbynens.be/>
+HoloWorld Copyright (c) 2018 Holochain
+PyHoloWorld port Copyright (c) 2018 Michael Goldman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
