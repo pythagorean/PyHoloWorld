@@ -5,13 +5,14 @@ def build():
     sh('transcrypt -n ui/*.py')
     sh('transcrypt -n -p .none dna/*/*.py')
     print('Modifying javascript for otto.')
+    startswith = path('node_modules/string.prototype.startswith/startswith.js').lines()
     for dir in path('dna').dirs():
         for infile in path(dir + '/__javascript__').files('*.mod.js'):
             inlines = []
             for line in infile.lines()[2:]:
                 if line[3] == '_': break
                 inlines.append(line[2:])
-            runtime = path('startswith.js').lines()
+            runtime = startswith
             runtime.append("\n// Transcrypt runtime code for otto: no bytearray support")
             jsfile = path(infile.relpath()[:-7] + '.js')
             strip = False

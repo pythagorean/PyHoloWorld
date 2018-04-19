@@ -1,0 +1,26 @@
+{
+  "name": "PyHoloWorld",
+  "version": "0.1.0",
+  "description": "Basic Hello World app for Holochain ported to Python",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pythagorean/PyHoloWorld.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pythagorean/PyHoloWorld/issues"
+  },
+  "homepage": "https://github.com/pythagorean/PyHoloWorld#readme",
+  "dependencies": {
+    "string.prototype.startswith": "^0.2.0"
+  }
+}
