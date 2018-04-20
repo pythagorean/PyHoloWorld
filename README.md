@@ -10,9 +10,10 @@ https://www.transcrypt.org/
 
 https://pythonhosted.org/Paver/
 
-You will also need to run 'npm install' or 'yarn' in order to obtain additional
-required Javascript libraries.
-
 After that just run 'make' and it should build.
 
 Then 'hcdev test' and 'hcdev web' should work without any problem.
+
+If you wish to modify the app DNA in a way that requires inclusion of the
+Python runtime, modify Makefile accordingly to build with 'paver -q build -r'
+and run 'npm install' or 'yarn' to obtain needed libraries.
