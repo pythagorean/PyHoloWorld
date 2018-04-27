@@ -1,14 +1,12 @@
-__pragma__ ('noalias', 'get') # Defaults to py_get, js_get to get
-
 # EXPOSED METHODS
 
 # creates a holoWorldEntry entry
 def holoWorldEntryCreate(entry):
-    return commit('holoWorldEntry', entry)
+    return hc_commit('holoWorldEntry', entry)
 
 # retrieves a holoWorldEntry entry
 def holoWorldEntryRead(hash):
-    return get(hash)
+    return hc_get(hash)
 
  # Called only when your source chain is generated
  # return {boolean} success

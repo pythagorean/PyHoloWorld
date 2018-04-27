@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/pythagorean/PyHoloWorld#readme",
   "dependencies": {
-    "string.prototype.startswith": "^0.2.0"
+    "babel-polyfill": "^6.26.0"
   }
 }
