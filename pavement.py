@@ -38,6 +38,7 @@ def build(options):
                 modlines.append(line[2:])
 
             jsfile.write_lines(hc_api + runtime + modlines)
+            if not path('node_modules/uglify-js').exists(): continue
             minfile = path(jsfile.relpath()[:-3] + '.min.js')
             print('Minifying target code in: ' + minfile.relpath())
             sh('node_modules/uglify-js/bin/uglifyjs --compress --mangle -- ' +
