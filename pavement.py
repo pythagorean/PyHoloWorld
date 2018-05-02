@@ -1,7 +1,3 @@
-# This is meant to be a generic Python builder for Holochain apps therefore
-# it has option to include full runtime which is not needed for PyHoloWorld
-# demonstration app DNA itself.
-
 from paver.easy import *
 
 @task
@@ -9,14 +5,14 @@ from paver.easy import *
     ('runtime', 'r', 'Include Transcrypt runtime in app DNA'),
 ])
 def build(options):
-    functions = [
-        '// Holochain functions for Transcrypted Python module',
-        'var hc_property = property;',
-        'var hc_get      = get;',
-        'var hc_update   = update;',
-        'var hc_commit   = commit;',
-        ''
-    ]
+    hc_api = ['// Holochain API functions for Transcrypted Python module']
+    hc_functions = [
+        'property', 'makeHash', 'debug', 'call', 'bridge', 'getBridges', 'sign',
+        'verifySignature', 'commit', 'get', 'getLinks', 'update', 'updateAgent',
+        'remove', 'query', 'send', 'bundleStart', 'bundleClose']
+    for function in hc_functions:
+        hc_api.append('var hc_' + function + ' = ' + function + ';')
+    hc_api += [' = '.join(hc_functions) + ' = undefined;', '']
     runtime = polyfill = []
     if hasattr(options, 'runtime') and options.runtime:
         polyfill = ['// Using babel polyfill libraries for otto']
@@ -41,7 +37,13 @@ def build(options):
                 if line[3:4] == '_': break
                 modlines.append(line[2:])
 
-            jsfile.write_lines(functions + runtime + modlines)
+            jsfile.write_lines(hc_api + runtime + modlines)
+            minfile = path(jsfile.relpath()[:-3] + '.min.js')
+            print('Minifying target code in: ' + minfile.relpath())
+            sh('node_modules/uglify-js/bin/uglifyjs --compress --mangle -- ' +
+                jsfile.relpath() + ' > ' + minfile.relpath())
+    for pyfile in path('ui').files('*.py'):
+        sh('transcrypt ' + pyfile.relpath())
 
 @task
 def clean():
